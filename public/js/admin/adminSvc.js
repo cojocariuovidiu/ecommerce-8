@@ -12,18 +12,20 @@ angular.module("app")
         };
 
 
-        this.addNewProduct = function(name, price, img) {
+        this.addNewProduct = function(name, price, img, prodDetails) {
+            console.log("hitting addNewProduct");
             return $http({
                 method: "POST",
                 url: '/api/products',
                 data: {
-                    name: name,
+                    title: name,
                     price: price,
-                    img: img
+                    image: img,
+                    description: prodDetails
                 }
             })
             .then(function(response) {
-                console.log(response);
+                return response;
             });
         };
 
@@ -45,7 +47,8 @@ angular.module("app")
                 data: {
                     name: name,
                     price: price,
-                    img: img
+                    img: img,
+                    description: prodDetails
                 }
             })
             .then(function(response) {
