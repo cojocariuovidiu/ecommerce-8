@@ -1,14 +1,26 @@
 var User = require('../models/User');
+var Cart = require('../models/cartSchema');
 
 module.exports = {
 
     addCart: function(req, res) {
+        console.log(req.body);
         User.findByIdAndUpdate(req.params.user_id, {$push: {cart: req.body}}, //This is going to find the user with the id we pass it, then push into the cart property a value of whatever is on our req.body
-        function(err, res) {
+        function(err, s) {
             if (err) {
                 res.status(500).send(err);
             } else {
-                res.status(200).send(res);
+                res.status(200).send(s);
+            }
+        });
+    },
+
+    destroyCart: function(req, res) {
+        Cart.findByIdAndRemove(req.body.id, function(err, s) {
+            if (err) {
+                res.status(500).send(err);
+            } else {
+                res.status(200).json(s);
             }
         });
     },

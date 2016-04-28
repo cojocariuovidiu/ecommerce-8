@@ -1,0 +1,7 @@
+<h1>{{cartObject.name}}'s Cart</h1>
+
+<div class="cart" ng-repeat="cart in cartObject.cart">
+    <ul>
+        <li>Product name:{{cart.products[0].item}}<br>Quantity: {{cart.products[0].quantity}} Unique Id:{{cart._id}}</li> 
+    </ul>
+</div>

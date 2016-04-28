@@ -1,5 +1,6 @@
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema,
+    ObjectId = Schema.Types.ObjectId,
     productSchema = require('./Product');
 
 //Orders should have two special relationships: a reference to a user, and embedded products.
@@ -9,7 +10,8 @@ var orderSchema = new Schema({
     products: [{
         item: [productSchema], //nested schema must be required in at top
         quantity: {type: Date, default: new Date()}
-    }]
+    }],
+    ordered: {type: Date, default: new Date()}
 });
 
 module.exports = mongoose.model("Order", orderSchema);

@@ -1,4 +1,5 @@
 var mongoose = require('mongoose'),
+    product = require('./Product'),
     Schema = mongoose.Schema;
 
 //Carts should have an array of references to products.

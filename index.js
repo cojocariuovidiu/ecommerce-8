@@ -23,12 +23,13 @@ app.delete('/api/products/:id', productsCtrl.destroyProduct);
 
 app.post('/api/user', userCtrl.addNewUser);
 app.get('/api/user/:user_id', userCtrl.getUser);
-//
+
 app.post('/api/order/:user_id', orderCtrl.addOrder);
 app.get('api/order/', orderCtrl.getOrder);
-//
+
 app.post('/api/cart/:user_id', cartCtrl.addCart);
-// app.put('/api/cart/:user_id');
+app.put('/api/cart/:user_id', cartCtrl.updateCart);
+app.delete('/api/cart/:id', cartCtrl.destroyCart);
 
 app.listen(port, function() {
   console.log('listening on port ', port);

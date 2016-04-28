@@ -14,6 +14,12 @@ angular.module("app", ['ui.router'])
                 url: '/admin',
                 templateUrl: "./js/admin/admin.html",
                 controller: "adminCtrl"
+            })
+
+            .state("cart", {
+                url: '/cart',
+                templateUrl: "./js/cart/cart.html",
+                controller: "cartCtrl"
             });
 
     });
